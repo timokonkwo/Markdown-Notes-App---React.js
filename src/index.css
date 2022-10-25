@@ -60,7 +60,7 @@ button:focus {
     margin-right: .4rem;
     border-radius: 3px;
     height: 18px;
-    width: 18px;
+    width: 1px;
 }
 
 .selected-note .delete-note {
