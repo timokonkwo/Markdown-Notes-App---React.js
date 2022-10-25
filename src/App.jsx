@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react"
-import Sidebar from "./components/Sidebar"
-import Editor from "./components/Editor"
-import { data } from "./data"
+import Sidebar from "./components/Sidebar.jsx"
+import Editor from "./components/Editor.jsx"
 import Split from "react-split"
 import {nanoid} from "nanoid"
 
 export default function App() {
 
     const saveNotesToLS = notes => {
-        notes && localStorage.setItem("notes", JSON.stringify(notes))
+        // notes && localStorage.setItem("notes", JSON.stringify(notes))
     }
 
     const getNotesFromLS = () => {
         const notesFromLS = JSON.parse(localStorage.getItem("notes"));
-        return notesFromLS && notesFromLS
+        // return notesFromLS && notesFromLS
     }
 
     const [notes, setNotes] = useState(() => getNotesFromLS() || [])
@@ -29,7 +28,7 @@ export default function App() {
     function createNewNote() {
         const newNote = {
             id: nanoid(),
-            body: "# Type your markdown note's title here"
+            body: "# Note title \n\n Type your markdown here"
         }
         setNotes(prevNotes => [newNote, ...prevNotes])
         setCurrentNoteId(newNote.id)
