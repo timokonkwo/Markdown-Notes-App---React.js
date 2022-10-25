@@ -57,10 +57,10 @@ button:focus {
     background-color: #4A4E74;
     border: none;
     color: white;
-    margin-right: .4rem;
+    margin-right: 1rem;
     border-radius: 3px;
     height: 18px;
-    width: 1px;
+    width: 18px;
 }
 
 .selected-note .delete-note {
