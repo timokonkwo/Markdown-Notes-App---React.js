@@ -34,6 +34,7 @@ export default function App() {
         setCurrentNoteId(newNote.id)
     }
     
+    // Update note function
     function updateNote(text) {
         setNotes(oldNotes => oldNotes.map(oldNote => {
             return oldNote.id === currentNoteId
