@@ -7,12 +7,12 @@ import {nanoid} from "nanoid"
 export default function App() {
 
     const saveNotesToLS = notes => {
-        // notes && localStorage.setItem("notes", JSON.stringify(notes))
+        notes && localStorage.setItem("notes", JSON.stringify(notes))
     }
 
     const getNotesFromLS = () => {
         const notesFromLS = JSON.parse(localStorage.getItem("notes"));
-        // return notesFromLS && notesFromLS
+        return notesFromLS && notesFromLS
     }
 
     const [notes, setNotes] = useState(() => getNotesFromLS() || [])
