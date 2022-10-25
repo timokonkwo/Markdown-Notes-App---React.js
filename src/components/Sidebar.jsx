@@ -13,6 +13,8 @@ export default function Sidebar(props) {
                 <h4 className="text-snippet">{
                     note.body && note.body.split("\n")[0]
                 }</h4>
+                <button className="delete-note" onClick={props.deleteNote}>-</button>
+
             </div>
         </div>
     ))
