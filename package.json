@@ -1,5 +1,10 @@
 {
   "name": "markdown-notes-app",
+  "author": "Tim Okonkwo",
+  "Github": "https://github.com/timokonkwo",
+  "website": "https://timokonkwo.com",
+  "email": "chibuiketimokonkwo@gmail.com",
+  "license": "MIT",
   "private": true,
   "version": "0.0.0",
   "type": "module",
