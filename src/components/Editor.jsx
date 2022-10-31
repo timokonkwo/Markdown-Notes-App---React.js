@@ -2,11 +2,6 @@ import React from "react"
 import ReactMde from "react-mde"
 import Showdown from "showdown"
 
-import S from "react-switch";
-const Switch = S.default? S.default: S
-console.log(S); // inspecting
-
-
 export default function Editor({ currentNote, updateNote }) {
     const [selectedTab, setSelectedTab] = React.useState("write")
 
