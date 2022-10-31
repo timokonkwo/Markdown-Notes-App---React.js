@@ -7,5 +7,6 @@ export default defineConfig({
   mode: "development",
   build: {
     minify: false,
+    minifySyntax: false
   }
 })
