@@ -4,7 +4,7 @@ Easily design and preview Markdown without hassle. Not currently deployed till s
 
 ![](https://github.com/timokonkwo/Markdown-Notes-App-React.js/blob/main/note%20app.gif)
 
-
+# Setup
 ## Run Locally
 
 Clone the project
