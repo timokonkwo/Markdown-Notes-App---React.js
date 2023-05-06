@@ -3,13 +3,7 @@ import Sidebar from "./components/Sidebar.jsx";
 import Editor from "./components/Editor.jsx";
 import Split from "react-split";
 import { notesCollection, db } from "./config/firebase.js";
-import {
-	addDoc,
-	deleteDoc,
-	doc,
-	onSnapshot,
-	updateDoc,
-} from "firebase/firestore";
+import { addDoc, deleteDoc, doc, onSnapshot, setDoc } from "firebase/firestore";
 
 export default function App() {
 	const [notes, setNotes] = useState([]);
@@ -27,7 +21,9 @@ export default function App() {
 				id: doc.id,
 			}));
 
-			setNotes(notesArr);
+			const sortedNotesArr = notesArr.sort((a, b) => b.updatedAt - a.updatedAt);
+
+			setNotes(sortedNotesArr);
 		});
 
 		return unsub;
@@ -35,12 +31,14 @@ export default function App() {
 
 	useEffect(() => {
 		if (!currentNoteId) setCurrentNoteId(notes[0]?.id);
-	}, [notes])
+	}, [notes]);
 
 	const createNewNote = async () => {
 		try {
 			const newNote = {
 				body: "# Note title \n\n Type your markdown here",
+				createdAt: Date.now(),
+				updatedAt: Date.now(),
 			};
 
 			const newNoteRef = await addDoc(notesCollection, newNote);
@@ -53,15 +51,13 @@ export default function App() {
 	// Update note function - push updated note to the top of list
 	async function updateNote(text) {
 		const noteRef = doc(db, "notes", currentNoteId);
-		await updateDoc(noteRef, { body: text });
+		await setDoc(noteRef, { body: text, updatedAt: Date.now()}, { merge: true });
 	}
 
 	const deleteNote = async (id) => {
 		const noteRef = doc(db, "notes", id);
 		await deleteDoc(noteRef);
 	};
-
-	console.log(currentNoteId);
 
 	return (
 		<main>
