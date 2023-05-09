@@ -6,12 +6,12 @@ export default function Sidebar(props) {
             <div
                 
                 className={`title ${
-                    note.id === props.currentNote.id ? "selected-note" : ""
+                    note?.id === props.currentNote.id ? "selected-note" : ""
                 }`}
                 onClick={() => props.setCurrentNoteId(note.id)}
             >
                 <h4 className="text-snippet">{
-                    note.body && note.body.split("\n")[0]
+                    note?.body && note?.body.split("\n")[0]
                 }</h4>
                 <button className="delete-note" onClick={() => props.deleteNote(note.id)}>-</button>
 
