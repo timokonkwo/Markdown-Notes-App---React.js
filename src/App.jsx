@@ -56,7 +56,6 @@ export default function App() {
 		if (!currentNoteId) setCurrentNoteId(notes[0]?.id);
 	}, [notes]);
 
-	// Debouncing logic
 	useEffect(() => {
 		const timeoutId = setTimeout(() => {
 			currentNote?.body !== tempNoteText && updateNote(tempNoteText);
@@ -80,7 +79,6 @@ export default function App() {
 		}
 	};
 
-	// Update note function - push updated note to the top of list
 	async function updateNote(text) {
 		try {
 			const noteRef = doc(db, "notes", currentNoteId);
